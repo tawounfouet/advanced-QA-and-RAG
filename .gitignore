@@ -1,3 +1,5 @@
+_venv/
+
 KnowledgeGraph-Q&A-and-RAG-with-Text
 travel.sqlite
 airline_policy_vectordb

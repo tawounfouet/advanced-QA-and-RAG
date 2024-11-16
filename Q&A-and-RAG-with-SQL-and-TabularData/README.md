@@ -26,49 +26,51 @@
 
 ## Installation:
 - Ensure you have Python installed along with required dependencies.
-```
+```sh
 sudo apt update && sudo apt upgrade
-python3 -m venv sql-raggpt-env
-git clone <the repository>
-cd SQL-RAG-GPT
-source ...Path to the environment/sql-raggpt-env/bin/activate
+#python3 -m venv sql-raggpt-env
+python3 -m venv _venv
+source _venv/bin/activate
+#git clone <the repository>
+#cd SQL-RAG-GPT
+#source ...Path to the environment/sql-raggpt-env/bin/activate
 pip install -r requirements.txt
 ```
 ## Execution:
 
 1. To prepare the SQL DB from a `.sql` file, Copy the file into `data/sql` directory and in the terminal, from the project folder, execute:
-```
+```sh
 sudo apt install sqlite3
 ```
 
 Now create a database called `sqldb`:
-```
+```sh
 sqlite3 data/sqldb.db
 .read data/sql/<name of your sql database>.sql
 ```
 Ex:
-```
+```sh
 .read data/sql/Chinook_Sqlite.sql
 ```
 
 This command will create a SQL database named `sqldb.db` in the `data` directory. Verify that it created the database
-```
+```sql
 SELECT * FROM <any Table name in your sql database> LIMIT 10;
 ```
 Ex:
-```
+```sql
 SELECT * FROM Artist LIMIT 10;
 ```
 
 2. To prepare a SQL DB from your CSV and XLSX files, copy your files in `data/csv_xlsx` and in the terminal, from the project folder, execute:
-```
+```sh
 python src/prepare_csv_xlsx_db.py.
 ```
 
 This command will create a SQL database named `csv_xlsx_sqldb.db` in the `data` directory.
 
 3. To prepare a vectorDB from your CSV and XLSX files, copy your files in `data/for_upload` and in the terminal, from the project folder, execute:
-```
+```sh
 python src/prepare_csv_xlsx_vectordb.py
 ```
 This command will create a VectorDB in `data/chroma` directory.
